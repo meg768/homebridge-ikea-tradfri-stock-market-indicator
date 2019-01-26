@@ -1,0 +1,40 @@
+{
+  "name": "homebridge-ikea-tradfri-stock-market-indicator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+		"commit": "git add -A && git commit -m '-' && git push",
+		"goto-github": "open https://github.com/meg768/homebridge-ikea-tradfri-stock-market-indicator",
+		"goto-npm": "open https://www.npmjs.com/package/homebridge-ikea-tradfri-stock-market-indicator"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meg768/homebridge-ikea-tradfri-stock-market-indicator.git"
+  },
+  "keywords": [
+    "homebrige",
+    "ikea",
+    "tradfri",
+    "trådfri",
+    "homebridge-plugin"
+  ],
+  "engines": {
+    "node": ">=0.12.0",
+    "homebridge": ">=0.2.0"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/meg768/homebridge-ikea-tradfri-stock-market-indicator/issues"
+  },
+  "homepage": "https://github.com/meg768/homebridge-ikea-tradfri-stock-market-indicator#readme",
+  "dependencies": {
+    "dotenv": "^6.2.0",
+    "node-tradfri-client": "^1.5.0",
+    "yahoo-finance": "^0.3.6",
+    "yow": "^1.0.104"
+  }
+}
