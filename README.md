@@ -1,0 +1,1 @@
+# homebridge-ikea-tradfri-stock-market-indicator
