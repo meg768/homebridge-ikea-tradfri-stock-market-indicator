@@ -1,10 +1,10 @@
 
 {
     "bridge": {
-        "name": "Trådfri",
-        "username": "AA:22:3D:E3:CE:57",
+        "name": "Stock Market Indicator",
+        "username": "AB:23:3E:E4:CD:58",
         "port": 51826,
-        "pin": "031-45-123"
+        "pin": "042-56-234"
     },
 
     "description": "This is an example configuration file",
@@ -14,7 +14,13 @@
             "platform": "Ikea Trådfri Stock Market Indicator",
             "name": "Ikea Trådfri Stock Market Indicator",
             "host": "gw-b8d7af2a9d45",
-            "securityCode" : "security-code-from-the-back-of-gateway"
+            "securityCode" : "security-code-from-the-back-of-gateway",
+            "indicators": {
+                "Sovrummet Bollen": {
+                    "symbol": "^OMX"
+                }
+            }
+
         }
     ]
 

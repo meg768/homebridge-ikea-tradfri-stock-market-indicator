@@ -5,10 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-		"commit": "git add -A && git commit -m '-' && git push",
-		"goto-github": "open https://github.com/meg768/homebridge-ikea-tradfri-stock-market-indicator",
-		"goto-npm": "open https://www.npmjs.com/package/homebridge-ikea-tradfri-stock-market-indicator"
-
+    "commit": "git add -A && git commit -m '-' && git push",
+    "goto-github": "open https://github.com/meg768/homebridge-ikea-tradfri-stock-market-indicator",
+    "goto-npm": "open https://www.npmjs.com/package/homebridge-ikea-tradfri-stock-market-indicator"
   },
   "repository": {
     "type": "git",
@@ -32,6 +31,7 @@
   },
   "homepage": "https://github.com/meg768/homebridge-ikea-tradfri-stock-market-indicator#readme",
   "dependencies": {
+    "color-convert": "^1.9.3",
     "dotenv": "^6.2.0",
     "node-tradfri-client": "^1.5.0",
     "yahoo-finance": "^0.3.6",

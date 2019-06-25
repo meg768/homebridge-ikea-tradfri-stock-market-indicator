@@ -11,9 +11,7 @@ var isArray          = require('yow/is').isArray;
 var Timer            = require('yow/timer');
 
 var Lightbulb          = require('./lightbulb.js');
-var WarmWhiteLightbulb = require('./warm-white-lightbulb.js');
 var RgbLightbulb       = require('./rgb-lightbulb.js');
-var Outlet             = require('./outlet.js');
 var Gateway            = require('./gateway.js');
 var Ikea               = require('node-tradfri-client');
 
@@ -59,50 +57,23 @@ module.exports = class Platform extends Gateway {
 
     setup() {
 
-        var expose = {};
-
-        if (isArray(this.config.expose)) {
-            this.config.expose.forEach((item) => {
-                expose[item] = true;
-            });
-        }
-        else {
-            expose['outlets'] = true;
-            expose['lightbulbs'] = true;
-        }
-
         for (var id in this.gateway.devices) {
             var device = this.gateway.devices[id];
             var supportedDevice = undefined;
 
             switch (device.type) {
-                case Ikea.AccessoryTypes.plug: {
-
-                    // Make sure the device has a plugList                    
-                    if (device.plugList && expose['outlets'])
-                        supportedDevice = new Outlet(this, device);
-                    
-                    break;
-                }
 
                 case Ikea.AccessoryTypes.lightbulb: {
 
                     // Make sure the device has a lightList
-                    if (device.lightList && expose['lightbulbs']) {
+                    if (device.lightList) {
                         var spectrum = device.lightList[0]._spectrum;
 
                         switch(spectrum) {
-                            case 'white': {
-                                supportedDevice = new WarmWhiteLightbulb(this, device);
-                                break;
-                            }
                             case 'rgbw':
                             case 'rgb': {
-                                supportedDevice = new RgbLightbulb(this, device);
-                                break;
-                            }
-                            default: {
-                                supportedDevice = new Lightbulb(this, device);
+                                console.log(device.name);
+//                                supportedDevice = new RgbLightbulb(this, device);
                                 break;
                             }
                         }
@@ -117,8 +88,6 @@ module.exports = class Platform extends Gateway {
                 this.devices[device.instanceId] = supportedDevice;
             }
             else {
-                this.log('The following device is ignored.');
-                this.log(JSON.stringify(device.deviceInfo));
             }
         }
 
